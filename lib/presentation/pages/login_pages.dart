@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jewepe/presentation/pages/admin_pages.dart';
+import 'package:jewepe/presentation/pages/landing_pages.dart';
 import 'package:jewepe/presentation/provider/auth_provider.dart';
 import 'package:jewepe/presentation/widget/text_input.dart';
 import 'package:provider/provider.dart';
@@ -39,7 +40,13 @@ class _LoginPagesState extends State<LoginPages> {
               const SizedBox(
                 height: 40,
               ),
-              Image.asset('assets/images/jewepe-dark.png'),
+              GestureDetector(
+                  onTap: () => Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LandingPages(),
+                      )),
+                  child: Image.asset('assets/images/jewepe-dark.png')),
               const SizedBox(
                 height: 60,
               ),

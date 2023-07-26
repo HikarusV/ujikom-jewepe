@@ -84,9 +84,7 @@ class PosterCard extends StatelessWidget {
                                       children: [
                                         Container(
                                           child: Text(
-                                            article.description +
-                                                article.description +
-                                                "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                                            article.description,
                                             style: const TextStyle(
                                               fontSize: 14,
                                             ),
@@ -133,11 +131,13 @@ class PosterCard extends StatelessWidget {
                                         ),
                                         ListView.builder(
                                           shrinkWrap: true,
-                                          itemCount: 12,
+                                          itemCount: article.comments != null
+                                              ? article.comments!.keys.length
+                                              : 0,
                                           itemBuilder: (context, index) {
                                             return CommentCard(
-                                              comment: Comments(
-                                                  createdAt: DateTime.now()),
+                                              comment: article.comments!.values
+                                                  .toList()[index],
                                             );
                                           },
                                         )

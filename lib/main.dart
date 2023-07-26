@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         textTheme: GoogleFonts.poppinsTextTheme(),
       ),
-      home: const AuthPages(),
+      home: const LandingPages(),
     );
   }
 }
