@@ -117,30 +117,44 @@ class ArticleCard extends StatelessWidget {
                                     ),
                                     Expanded(
                                         child: ListView.builder(
-                                      itemCount: 8,
+                                      itemCount: article.comments != null
+                                          ? article.comments!.keys.length
+                                          : 0,
                                       itemBuilder: (context, index) {
                                         return Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            const Text(
-                                              'username',
-                                              style: TextStyle(
+                                            Text(
+                                              article.comments != null
+                                                  ? article.comments!.values
+                                                      .toList()[index]
+                                                      .username
+                                                  : 'username',
+                                              style: const TextStyle(
                                                   fontSize: 12,
                                                   fontWeight: FontWeight.w600),
                                             ), //username
-                                            const Text(
-                                              'email@mail.com',
-                                              style: TextStyle(
+                                            Text(
+                                              article.comments != null
+                                                  ? article.comments!.values
+                                                      .toList()[index]
+                                                      .email
+                                                  : 'email',
+                                              style: const TextStyle(
                                                 fontSize: 12,
                                               ),
                                             ), //email
                                             const SizedBox(
                                               height: 4,
                                             ),
-                                            const Text(
-                                              'Isi Comment',
-                                              style: TextStyle(
+                                            Text(
+                                              article.comments != null
+                                                  ? article.comments!.values
+                                                      .toList()[index]
+                                                      .comment
+                                                  : 'comment',
+                                              style: const TextStyle(
                                                 fontSize: 12,
                                               ),
                                             ), //comments

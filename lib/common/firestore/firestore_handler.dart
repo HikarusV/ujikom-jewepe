@@ -89,7 +89,6 @@ class FirestoreHandler {
         // buffer.add(Article.fromJson(bufferData));
       });
     });
-    // print(bufferComment['1b54748b']);
 
     for (String i in bufferComment.keys) {
       buffer[buffer.indexWhere((element) => element.id == i)].comments =
